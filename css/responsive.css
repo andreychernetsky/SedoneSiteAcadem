@@ -1,0 +1,33 @@
+@media (max-width: 1230px) {
+}
+
+@media (max-width: 990px) {
+	.Main-header {
+		width: 100%;
+	}
+	.main {
+		width: 100%;
+		display: flex;
+		flex-flow: row wrap;
+		padding: 5px;
+	}
+	.Info-section {
+		width: 100%;
+		display: flex;
+		flex-flow: row wrap;
+		flex-direction: column;
+	}
+	.Feature {
+		width: 100%;
+	}
+	.Main-footer {
+		width: 100%;
+	}
+}
+
+
+@media (max-width: 770px) {
+}
+
+	@media (max-width: 575px) {
+}
