@@ -6,17 +6,30 @@
 	<title>Седона проект form</title>
 </head>
 <body>
+<style>
+	.burger-button {
+		width: 23px;
+		height: 23px;
+		cursor: pointer;
+		background: #ff5c5c;
+	}
+	@media screen and(max-width: 740px) {
+		.main-menu {
+			transition: background-color 0.6s ease;
+		}
+	}
+</style>
 <header class="main-header">
 	<div class="container">
 		<a class="main-header__logo" href="./index.html">
 			<img class="main-header__logo-picture" width="102" height="83" src="img/logo-sedona-desktop.svg" alt="City of Sedona">
 		</a>
-		<button class="burger-button"></button>
-		<nav class="main-menu">
+		<button class="burger-button" id="btn"></button>
+		<nav class="main-menu" id="navMenu">
 			<ul class="main-menu__list">
 				<li class="main-menu__item">
 					<span class="main-menu__cross-button"></span>
-					<a class="main-menu__link List__link--active" href="./index.html">Главная</a>
+					<a class="main-menu__link main__link--active" href="./index.html">Главная</a>
 				</li>
 				<li class="main-menu__item">
 					<a class="main-menu__link" href="./photo.html">Фото и видио</a>
@@ -47,110 +60,78 @@
 		<form action="https://echo.htmlacademy.ru" method="post">
 			<div class="container">
 				<fieldset class="recall-block">
-					<legend class="recall-title recall-block__title--left">
+					<legend class="recall-title">
 						представьтесь:
 					</legend>
-					<div class="recall-item recall-item--name">
-						<label class="recall-item__label" for="first-name">
-					<span class="recall-item__name">имя
-						<sup>*</sup>:
-					</span>
-						</label>
-						<input class="recall-item__input" type="text" name="first-name" id="first-name" placeholder="Пётр" required>
-					</div>
-					<div class="recall-item recall-item--name">
-						<label class="recall-item__label" for="first-name">
-					<span class="recall-item__name">фамилия
-						<sup>*</sup>:
-					</span>
-						</label>
-						<input class="recall-item__input" type="text" name="last-name" id="last-name" placeholder="Александер" required>
-					</div>
-					<div class="recall-item recall-item--name">
-						<label class="recall-item__label" for="middle-name">
-					<span class="recall-item__name">
-						<sup>*</sup>
-					</span>
-							<input class="recall-item__input" type="text" name="first-name" id="middle-name" placeholder="ванов" required>
-						</label>
-					</div>
+					<label class="recall-item recall-block__recall-item">
+						<span class="recall-item__name">Имя<sup>*</sup>:</span>
+						<input class="recall-item__input" type="text" name="first-name" placeholder="Пётр" required>
+					</label>
+					<label class="recall-item recall-block__recall-item">
+						<span class="recall-item__name">фамилия<sup>*</sup>:</span>
+						<input class="recall-item__input" type="text" name="last-name" placeholder="Александер" required>
+					</label>
+					<label class="recall-item recall-block__recall-item">
+						<span class="recall-item__name"><sup>*</sup></span>
+						<input class="recall-item__input" type="text" name="first-name" placeholder="ванов" required>
+					</label>
 				</fieldset>
 				<fieldset class="recall-block">
 					<legend class="recall-block__title">
 						контактная информация:
 					</legend>
-					<div class="recall-item recall-item--info">
-						<label class="recall-item__label" for="tel">
-							<span>Контактный Телефон<sup>*</sup>:</span>
-						</label>
-						<input class="recall-item__input recall-item__input--contact" type="tel" name="tel" id="tel" placeholder="Введите телефон" required>
-						<span class="recall-item__icon">
-						<svg></svg>
-					</span>
+					<label class="recall-item	recall-block__recall-item">
+						<span>Контактный Телефон<sup>*</sup>:</span>
+						<input class="recall-item__input" type="tel" name="tel" placeholder="Введите телефон" required>
+						<span class="recall-item__icon"><svg></svg></span>
 						<span class="recall-item__error">Ошибка, проверьте номер</span>
-					</div>
-					<div class="recall-item recall-item--info">
-						<label class="recall-item__label" for="email">
-					<span>Электронная почта<sup>*</sup>:
-					</span>
-						</label>
-						<input class="recall-item__input recall-item__input--contact" type="email" name="email" id="email" placeholder="Введите e-mail" required>
-						<span class="recall-item__icon">
-						<svg></svg>
-					</span>
-					</div>
+					</label>
+					<label class="recall-item recall-block__recall-item"><span>Электронная почта<sup>*</sup>:</span>
+						<input class="recall-item__input recall-item__input--contact" type="email" name="email" placeholder="Введите e-mail" required>
+						<span class="recall-item__icon"><svg></svg></span>
+					</label>
 				</fieldset>
 				<fieldset class="recall-block">
 					<legend class="recall-block__title">Ваше общее впечатление:</legend>
-					<label class="recall-item">
-						<input class="recall-item__input input recall-item__input--radio" type="radio" name="good" value="good" id="good" checked>
-						<span class="recall-item__label  recall-item__label--text" for="good">Скорее положительное</span>
+					<label class="recall-item	recall-block__recall-item">
+						<input class="recall-item__input" type="radio" name="good" value="good" checked>
+						<span class="recall-item__label">Скорее положительное</span>
 					</label>
-					<label class="recall-item">
-						<input class="recall-item__input input recall-item__input--radio" type="radio" name="bad" value="bad" id="bad" checked>
-						<span class="recall-item__label  recall-item__label--text" for="bad">Скорее трицательное</span>
+					<label class="recall-item	recall-block__recall-item">
+						<input class="recall-item__input" type="radio" name="bad" value="bad" checked>
+						<span class="recall-item__label">Скорее трицательное</span>
 					</label>
-					<label class="recall-item">
-						<input class="recall-item__input input recall-item__input--radio" type="radio" name="difficult" value="difficult" id="difficult" checked>
-						<span class="recall-item__label  recall-item__label--text" for="difficult">затрудняюсь ответить</span>
+					<label class="recall-item	recall-block__recall-item">
+						<input class="recall-item__input" type="radio" name="difficult" value="difficult" checked>
+						<span class="recall-item__label">затрудняюсь ответить</span>
 					</label>
 				</fieldset>
 				<fieldset class="recall-block">
 					<legend class="recall-block__title">Посещённые достопримечательности:</legend>
-					<div class="recall-block__content">
-						<label class="recall-item recall-item--attraction" for="devils-bridge">
-							<input type="checkbox" class="recall-item__input" name="devils-bridge" value="devils-bridge" id="devils-bridge" checked>
-							<span class="recall-item__label recall-item__label--text">
-						Мост Дьявола
-					</span>
-						</label>
-						<label class="recall-item recall-item--attraction" for="mount-bell">
-							<input class="recall-item__input recall-item__input--checkbox" type="checkbox" name="mount-bell" value="mount-bell" id="mount-bell" checked>
-							<span class="recall-item__label recall-item__label--text">
-						Гора-Колокол
-					</span>
-						</label>
-						<label class="recall-item recall-item--attraction" for="slide-park">
-							<input class="recall-item__input recall-item__input--checkbox" type="checkbox" name="slide-park" value="slide-park" id="slide-park" checked>
-							<span class="recall-item__label recall-item__label--text">
-					Слайд-парк
-					</span>
-						</label>
-						<label class="recall-item recall-item--attraction" for="red-cliffs">
-							<input class="recall-item__input recall-item__input--checkbox" type="checkbox" name="red-cliffs" value="red-cliffs" id="red-cliffs" checked>
-							<span class="recall-item__label recall-item__label--text">
-					Красные скалы
-					</span>
-						</label>
-					</div>
+					<label class="recall-item	recall-block__recall-item">
+						<input type="checkbox" class="recall-item__input" name="devils-bridge" value="devils-bridge" checked>
+						<span class="recall-item__label recall-item__label--text">Мост Дьявола</span>
+					</label>
+					<label class="recall-item	recall-block__recall-item">
+						<input class="recall-item__input" type="checkbox" name="mount-bell" value="mount-bell" checked>
+						<span class="recall-item__label">Гора-Колокол</span>
+					</label>
+					<label class="recall-item	recall-block__recall-item">
+						<input class="recall-item__input" type="checkbox" name="slide-park" value="slide-park" id="slide-park" checked>
+						<span class="recall-item__label">Слайд-парк</span>
+					</label>
+					<label class="recall-item	recall-block__recall-item">
+						<input class="recall-item__input" type="checkbox" name="red-cliffs" value="red-cliffs" checked>
+						<span class="recall-item__label recall-item__label--text">Красные скалы</span>
+					</label>
 				</fieldset>
 				<fieldset class="recall-block">
 					<div class="container">
 						<legend class="recall-block__title">
 							Опишите свои эмоции:
 						</legend>
-						<div class="recall-item">
-							<textaria class="recall-item__input recall-item__input--big" name="emotion" cols="30" rows="10"
+						<div class="recall-item	recall-block__recall-item">
+							<textaria class="recall-item__input" name="emotion" cols="30" rows="10"
 												placeholder="Опишите подробно все свои восторги"></textaria>
 							<button class="button" type="submit">
 								<span class="button__text">Отправить отзыв</span>
@@ -167,15 +148,9 @@
 	<div class="container">
 		<h2 class="main-footer">#visitsedona</h2>
 		<div class="social">
-			<a href="#" class="social__button">
-				<svg></svg>
-			</a>
-			<a href="#" class="social__button">
-				<svg></svg>
-			</a>
-			<a href="#" class="social__button">
-				<svg></svg>
-			</a>
+			<a href="#" class="social__button"></a>
+			<a href="#" class="social__button"></a>
+			<a href="#" class="social__button"></a>
 		</div>
 		<p class="main-footer__social-button">Разработано
 			<a href="#" class="main-footer__copyright">
@@ -184,5 +159,13 @@
 		</p>
 	</div>
 </footer>
+<script>
+	
+const burger = ()=> {
+	const navBtn = document.getElementById('navMenu');
+		navBtn.style.display === 'none' ? navBtn.style.display = 'block': navBtn.style.display = 'none';
+}
+document.getElementById('btn').addEventListener('click',burger);
+</script>
 </body>
 </html>
