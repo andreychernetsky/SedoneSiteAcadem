@@ -21,15 +21,15 @@
 </style>
 <header class="main-header">
 	<div class="container">
-		<a class="main-header__logo" href="./index.html">
-			<img class="main-header__logo-picture" width="102" height="83" src="img/logo-sedona-desktop.svg" alt="City of Sedona">
+		<a class="logo" href="./index.html">
+			<img class="logo__picture" width="102" height="83" src="img/logo-sedona-desktop.svg" alt="City of Sedona">
 		</a>
 		<button class="burger-button" id="btn"></button>
 		<nav class="main-menu" id="navMenu">
 			<ul class="main-menu__list">
 				<li class="main-menu__item">
 					<span class="main-menu__cross-button"></span>
-					<a class="main-menu__link main__link--active" href="./index.html">Главная</a>
+					<a class="main-menu__link" href="./index.html">Главная</a>
 				</li>
 				<li class="main-menu__item">
 					<a class="main-menu__link" href="./photo.html">Фото и видио</a>
@@ -44,8 +44,7 @@
 		</nav>
 	</div>
 </header>
-<main class="main">
-	<div class="container">
+<main class="container">
 		<article class="info-section">
 			<div class="info-section__image">
 				<img class="info-section__index-text" src="img/" alt="Sedona slogan">
@@ -58,7 +57,6 @@
 			</section>
 		</article>
 		<form action="https://echo.htmlacademy.ru" method="post">
-			<div class="container">
 				<fieldset class="recall-block">
 					<legend class="recall-block__title">
 						представьтесь:
@@ -83,12 +81,12 @@
 					<label class="recall-item	recall-block__recall-item">
 						<span>Контактный Телефон<sup>*</sup>:</span>
 						<input class="recall-item__input" type="tel" name="tel" placeholder="Введите телефон" required>
-						<span class="recall-item__icon"><svg></svg></span>
+						<span class="recall-item__icon"></span>
 						<span class="recall-item__error">Ошибка, проверьте номер</span>
 					</label>
 					<label class="recall-item recall-block__recall-item"><span>Электронная почта<sup>*</sup>:</span>
 						<input class="recall-item__input" type="email" name="email" placeholder="Введите e-mail" required>
-						<span class="recall-item__icon"><svg></svg></span>
+						<span class="recall-item__icon"></span>
 					</label>
 				</fieldset>
 				<fieldset class="recall-block">
@@ -126,37 +124,32 @@
 					</label>
 				</fieldset>
 				<fieldset class="recall-block">
-					<div class="container">
 						<legend class="recall-block__title">
 							Опишите свои эмоции:
 						</legend>
 						<div class="recall-item	recall-block__recall-item">
-							<textaria class="recall-item__input" name="emotion" cols="30" rows="10"
-												placeholder="Опишите подробно все свои восторги"></textaria>
+							<textaria class="recall-item__input" name="emotion" cols="30" rows="10" placeholder="Опишите подробно все свои восторги"></textaria>
 							<button class="button" type="submit">
 								<span class="button__text">Отправить отзыв</span>
 							</button>
 							<span class="recall-item__notice">* — обязательные поля</span>
 						</div>
-					</div>
 				</fieldset>
-			</div>
 		</form>
-	</div>
 </main>
 <footer class="main-footer">
 	<div class="container">
-		<h2 class="main-footer">#visitsedona</h2>
+		<h2 class="tag">#visitsedona</h2>
 		<div class="social">
 			<a href="#" class="social__button"></a>
 			<a href="#" class="social__button"></a>
 			<a href="#" class="social__button"></a>
 		</div>
-		<p class="main-footer__social-button">Разработано
-			<a href="#" class="main-footer__copyright">
-				в HTML Academy
+		<div class="development">Разработано
+			<a href="#" class="development__copyright">
+				<img class="development__picture" src="img/logo-htmlacademy.svg" width="27" height="35" alt="HTML Academy">
 			</a>
-		</p>
+		</div>
 	</div>
 </footer>
 <script>
