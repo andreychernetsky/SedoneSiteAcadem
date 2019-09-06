@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Седона проект 1</title>
+	<link rel="stylesheet" href="css/style.min.css">
+</head>
+<body>
+
+<header class="main-header">
+	<div class="container">
+		<a class="logo">
+			<picture>
+				<source media="(min-width:1200px)" srcset="img/logo/logo-sedona-desktop.svg">
+				<source media="(min-width:768px)" srcset="img/logo/logo-sedona-tablet.svg">
+				<source media="(min-width:320px)" srcset="img/logo/logo-sedona-mobile.svg">
+				<img class="logo__picture" width="102" height="83" src="img/logo/logo-sedona-desktop.svg">
+			</picture>
+		</a>
+		<!--<button class="burger-button" id="btn"></button>-->
+		<label class="hamburger">
+			<input class="hamburger__checkbox" type="checkbox" />
+			<div class="hamburger__open">open</div>
+			<div class="hamburger__close">close</div>
+		</label>
+		<nav class="main-menu" id="navMenu">
+			<ul class="main-menu__list">
+				<li class="main-menu__item">
+					<span class="main-menu__cross-button"></span>
+					<a class="main-menu__link main-menu__link--active" href="#">Главная</a>
+				</li>
+				<li class="main-menu__item">
+					<a class="main-menu__link" href="./photo.html">Фото и видио</a>
+				</li>
+				<li class="main-menu__item">
+					<a href="./form.html" class="List__link">Форма отзыва</a>
+				</li>
+				<li class="main-menu__item">
+					<a href="#" class="List__link">github</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main class="container">
+	<article class="info-section">
+		<div class="info-section__image">
+			<img class="info-section__index-text" src="img/logo/text-sedona-index.svg" alt="Sedona slogan">
+		</div>
+		<section class="info-section__facts">
+			<h2 class="info-section__title">
+				Седона — небольшой городок в Аризоне, заслуживающий большего!
+			</h2>
+			<p class="info-section__reasons">
+				Рассмотрим 5 причин, по которым Седона круче чем гранд каньон!
+			</p>
+		</section>
+	</article>
+	<div class="main-container">
+		<article class="feature">
+			<section class="feature__fact">
+				<h2 class="feature__title">Настоящий городок</h2>
+				<p class="feature__text">&#8211; 1 &#8211;</p>
+				<p class="feature__text">
+					Седона не аттракцион для туристов, там течет своя жизнь
+				</p>
+			</section>
+			<div class="feature__image">
+				<picture>
+					<source media="(min-width:768px)" srcset="img/photo/photo-city-tablet@1x.jpg">
+					<source media="(min-width:320px)" srcset = 'img/photo/photo-city-mobile@1x.jpg'>
+					<img class="feature__picture" width="320" height="260" src="img/photo/photo-city@1x.jpg" alt="Picture 0f Sedona">
+				</picture>
+			</div>
+		</article>
+		<article class="main-features">
+			<section class="main-features__advice">
+				<h2 class="main-features__title">Жилье</h2>
+				<p class="main-features__text">
+					Рекомендуем пожить в настоящем мотеле, все как вкино!
+				</p>
+			</section>
+			<section class="main-features__advice">
+				<h2 class="main-features__title">Еда</h2>
+				<p class="main-features__text">Всегда заказывайте ФИРМЕННЫЙ БУРГЕР, Вы НЕ разочаруетесь!
+				</p>
+			</section>
+			<section class="main-features__advice">
+				<h2 class="main-features__advice">Сувениры</h2>
+				<p class="main-features__text">Не только китайского, но и местного производства!
+				</p>
+			</section>
+		</article>
+		<article class="feature">
+			<section class="feature__fact">
+				<h2 class="feature__title">Там есть мост дьявола</h2>
+				<p class="feature__text">&#8211; 2 &#8211;</p>
+				<p class="feature__text">Да, по нему можно пройти!Если выосмелитесь, конечно</p>
+			</section>
+			<div class="feature__image">
+				<picture>
+					<source media="(min-width:1200px)" srcset="img/photo/img/photo-bridge@1x.jpg">
+					<source media="(min-width:768px)" srcset="img/photo/photo-bridge-tablet@1x.jpg">
+					<source media="(min-width:320px)" srcset="img/photo/photo-bridge-mobile@1x.jpg">
+					<img class="feature__picture" width="320" height="260" src="img/photo/photo-bridge@1x.jpg" alt="Picture 0f Sedona">
+				</picture>
+			</div>
+		</article>
+		<article class="feature">
+			<section class="feature__fact">
+				<h2 class="feature__title">Небольшая площадь</h2>
+				<p class="feature__text">&#8211; 3 &#8211;</p>
+				<p class="feature__text">Все достопримечательностинаходятся очень близко</p>
+			</section>
+			<section class="feature__fact">
+				<h2 class="feature__title">Красивая дорога</h2>
+				<p class="feature__text">&#8211; 5 &#8211;</p>
+				<p class="feature__text">Ехать в Седону из Лас-Вегаса совсем не скучно!</p>
+			</section>
+			<section class="feature__fact">
+				<h2 class="feature__title">Мало туристов</h2>
+				<p class="feature__text">&#8211; 4 &#8211;</p>
+				<p class="feature__text">Большинство едет в Гранд Каньон и толпится там</p>
+			</section>
+		</article>
+		<section class="search-hotel">
+			<h2 class="search-hotel">Заинтересовались</h2>
+			<p class="search-hotel__text">Укажите предполагаемые датыпоездки, и мы покажем вам лучшие предложения гостиниц в Седоне</p>
+			<button class="search-hotel button" type="submit">
+				Найти гостиницу
+			</button>
+		</section>
+		<div class="map">
+			<picture>
+				<source media="(min-width:1200px)" srcset="img/map/bg-map-desktop@1x.jpg">
+				<source media="(min-width:768px)" srcset="img/map/img/bg-map-tablet@1x.jpg">
+				<source media="(min-width:320px)" srcset="img/map/img/bg-map-mobile@1x.jpg">
+				<img class="map__picture" width="320" height="350" src="img/map/bg-map-desktop@1x.jpg" alt="Map 0f Sedona">
+			</picture>
+		</div>
+	</div>
+</main>
+<footer class="main-footer">
+	<div class="container">
+		<h2 class="tag">#visitsedona</h2>
+		<div class="social">
+			<a href="#" class="social__button"></a>
+			<a href="#" class="social__button"></a>
+			<a href="#" class="social__button"></a>
+		</div>
+		<div class="development">Разработано
+			<a href="#" class="development__copyright">
+				<img class="development__picture" src="img/logo-htmlacademy.svg" width="27" height="35" alt="HTML Academy">
+			</a>
+		</div>
+	</div>
+</footer>
+<script src = "js/libs.min.js"></script>
+<script src = "js/main.js"></script>
+</body>
+</html>
