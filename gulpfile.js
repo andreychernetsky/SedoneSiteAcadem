@@ -5,6 +5,7 @@ let gulp = require('gulp'),// Подключаем Gulp
   uglify = require('gulp-uglify'); // Подключаем gulp-uglifyjs (для сжатия JS)
   rename = require('gulp-rename');
   autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов
+  babel = require('gulp-babel');
 
   gulp.task('scss', function () {// Создаем таск Sass
     return gulp.src('app/scss/**/*.scss')// Берем источник
@@ -24,6 +25,14 @@ gulp.task('script', function(){
   return gulp.src('app/js/*.js')
   .pipe(browserSync.reload({stream:true}))
 });
+
+gulp.task('default', () =>
+  gulp.src('app/js/**/*.js')
+    .pipe(babel({
+      presets: ['@babel/env']
+    }))
+    .pipe(gulp.dest('dist'))
+);
 
 gulp.task('js', function() {
   return gulp.src(['node_modules/slick-carousel/slick/slick.js','node_modules/magnific-popup/dist/jquery.magnific-popup.js'])
