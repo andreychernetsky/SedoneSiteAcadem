@@ -1,60 +1,97 @@
-let gulp = require('gulp'),// Подключаем Gulp
-  sass = require('gulp-sass'),//Подключаем Sass пакет,
-  browserSync = require('browser-sync'), // Подключаем Browser Sync
-  concat = require('gulp-concat'), // Подключаем gulp-concat (для конкатенации файлов)
-  uglify = require('gulp-uglify'); // Подключаем gulp-uglifyjs (для сжатия JS)
-  rename = require('gulp-rename');
-  autoprefixer = require('gulp-autoprefixer');// Подключаем библиотеку для автоматического добавления префиксов
-  babel = require('gulp-babel');
+"use strict";
 
-  gulp.task('scss', function () {// Создаем таск Sass
-    return gulp.src('app/scss/**/*.scss')// Берем источник
-      .pipe(sass({outputStyle: 'compressed'})) //compressed, expanded
-      .pipe(autoprefixer(['last 15 versions', '> 1%', 'ie 8', 'ie 7'], { cascade: true })) // Создаем префиксы
-      .pipe(rename({suffix:'.min'}))// при сжатие добавляет min
-      .pipe(gulp.dest('app/css'))
-      .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
+const gulp = require("gulp"),
+ sass = require("gulp-sass"),
+ plumber = require("gulp-plumber"),
+ postcss = require("gulp-postcss"),
+ autoprefixer = require("autoprefixer"),
+ server = require("browser-sync").create(),
+ mqpacker = require("css-mqpacker"),
+ minify = require("gulp-csso"),
+ rename = require("gulp-rename"),
+ imagemin = require("gulp-imagemin"),
+ svgstore = require("gulp-svgstore"),
+ svgmin = require("gulp-svgmin"),
+ run = require("run-sequence"),
+ del = require("del");
+
+gulp.task("style",()=> {
+  gulp.src("sass/style.scss")
+  .pipe(plumber())
+  .pipe(sass())
+  .pipe(postcss([
+    autoprefixer({browsers: [
+      "last 2 versions"
+    ]}),
+    mqpacker({
+      sort: true
+    })
+  ]))
+  .pipe(gulp.dest("build/css"))
+  .pipe(minify())
+  .pipe(rename("style.min.css"))
+  .pipe(gulp.dest("build/css"))
+  .pipe(server.stream())
+});
+
+gulp.task("images", function() {
+  return gulp.src("build/img/**/*.{png,jpg,gif}")
+  .pipe(imagemin([
+    imagemin.optipng({optimizationLevel: 3}),
+    imagemin.jpegtran({progressive: true})
+  ]))
+  .pipe(gulp.dest("build/img"));
+});
+
+gulp.task("symbols", function() {
+  return gulp.src("build/img/icons/*.svg")
+  .pipe(svgmin())
+  .pipe(svgstore({
+    inlineSvg: true
+  }))
+  .pipe(rename("symbols.svg"))
+  .pipe(gulp.dest("build/img"));
+});
+
+gulp.task("html:copy", function() {
+  return gulp.src("*.html")
+  .pipe(gulp.dest("build"));
+});
+
+gulp.task("html:update", ["html:copy"], function(done) {
+  server.reload();
+  done();
+});
+
+gulp.task("serve", function() {
+  server.init({
+    server: "build/",
+    notify: true,
+    open: true,
+    cors: true,
+    ui: false
   });
 
-gulp.task('html', function () {
-  return gulp.src('app/*.html')
-    .pipe(browserSync.reload({stream: true}))
+  gulp.watch("sass/**/*.{scss,sass}", ["style"]);
+  gulp.watch("*.html", ["html:update"]);
+})
+
+gulp.task("build", function(fn) {
+  run("clean", "copy", "style", "images", "symbols", fn);
+})
+
+gulp.task("copy", function() {
+  return gulp.src([
+    "fonts/**/*.{woff,woff2}",
+    "img/**",
+    "js/**",
+    "*.html"
+  ], {
+    base: "."
+  })
+  .pipe(gulp.dest("build"));
 });
 
-gulp.task('script', function(){
-  return gulp.src('app/js/*.js')
-  .pipe(browserSync.reload({stream:true}))
+gulp.task("clean", function() {
+  return del("build");
 });
-
-gulp.task('default', () =>
-  gulp.src('app/js/**/*.js')
-    .pipe(babel({
-      presets: ['@babel/env']
-    }))
-    .pipe(gulp.dest('dist'))
-);
-
-gulp.task('js', function() {
-  return gulp.src(['node_modules/slick-carousel/slick/slick.js','node_modules/magnific-popup/dist/jquery.magnific-popup.js'])
-    .pipe(concat('libs.min.js'))//даем название сжатому файлу
-    .pipe(uglify())
-    .pipe(gulp.dest('app/js'))
-    .pipe(browserSync.reload({stream:true}))
-});
-
-gulp.task('browser-sync', function () { // Создаем таск browser-sync
-  browserSync.init({ // Выполняем browserSync
-    server: { // Определяем параметры сервера
-      baseDir: 'app/' // Директория для сервера - app
-    }
-  });
-});
-
-gulp.task('watch', function () {
-  gulp.watch('app/scss/**/*.scss', gulp.parallel('scss'));// Наблюдение за sass файлами
-  gulp.watch('app/*.html', gulp.parallel('html')); // Наблюдение за HTML файлами в корне проекта
-  gulp.watch('app/js/*.js', gulp.parallel('script'));
-});
-
-gulp.task('default', gulp.parallel('scss','js','browser-sync', 'watch'));
-

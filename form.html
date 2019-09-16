@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="ru">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<title>Седона проект form</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="main-header">
+	<div class="container">
+		<a class="logo" href="./index.html">
+				<img class="logo__picture" width="102" height="83" src="img/logo/logo-sedona-desktop.svg">
+		</a>
+		<!--<button class="burger-button" id="btn"></button>-->
+		<label class="hamburger">
+			<input class="hamburger__checkbox" type="checkbox" />
+			<div class="hamburger__open">open</div>
+			<div class="hamburger__close">close</div>
+		</label>
+		<nav class="main-menu" id="navMenu">
+			<ul class="main-menu__list">
+				<li class="main-menu__item">
+					<span class="main-menu__cross-button"></span>
+					<a class="main-menu__link" href="./index.html">Главная</a>
+				</li>
+				<li class="main-menu__item">
+					<a class="main-menu__link" href="./photo.html">Фото и видео</a>
+				</li>
+				<li class="main-menu__item">
+					<a href="./index.html" class="main-menu__link main-menu__link--active">Форма отзыва</a>
+				</li>
+				<li class="main-menu__item ">
+					<a href="#" class="main-menu__link">github</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>
+<main class="container">
+	<section class="info-section">
+		<div class="info-section__image">
+			<img class="info-section__index-text" src="img/logo/text-sedona-index.svg" alt="Sedona slogan">
+		</div>
+		<div class="info-section__promo">
+			<h2 class="info-section__title">Оставьте свой отзыв</h2>
+			<p class="info-section__text">
+				Помогите нашим отелям стать лучше! оставьте отзыв о них, а также о посещенных вами достопримечательностях
+			</p>
+		</div>
+	</section>
+	<form action="https://echo.htmlacademy.ru" method="post">
+		<fieldset class="recall-block">
+			<legend class="recall-block__title">
+				представьтесь:
+			</legend>
+			<label class="recall-item recall-block__recall-item">
+				<span class="recall-item__name">Имя<sup>*</sup>:</span>
+				<input class="recall-item__input" type="text" name="name" placeholder="Пётр" required>
+			</label>
+			<label class="recall-item recall-block__recall-item">
+				<span class="recall-item__name">фамилия<sup>*</sup>:</span>
+				<input class="recall-item__input" type="text" name="name" placeholder="Александер" required>
+			</label>
+			<label class="recall-item recall-block__recall-item">
+				<span class="recall-item__name"><sup>*</sup></span>
+				<input class="recall-item__input" type="text" name="name" placeholder="ванов" required>
+			</label>
+		</fieldset>
+		<fieldset class="recall-block">
+			<legend class="recall-block__title">
+				контактная информация:
+			</legend>
+			<label class="recall-item	recall-block__recall-item">
+				<span>Контактный Телефон<sup>*</sup>:</span>
+				<input class="recall-item__input" type="tel" name="contact" placeholder="Введите телефон" required>
+				<span class="recall-item__icon"></span>
+				<span class="recall-item__error">Ошибка, проверьте номер</span>
+			</label>
+			<label class="recall-item recall-block__recall-item"><span>Электронная почта<sup>*</sup>:</span>
+				<input class="recall-item__input" type="email" name="contact" placeholder="Введите e-mail" required>
+				<span class="recall-item__icon"></span>
+			</label>
+		</fieldset>
+		<fieldset class="recall-block">
+			<legend class="recall-block__title">Ваше общее впечатление:</legend>
+			<label class="recall-check	recall-block__recall-check">
+				<input class="recall-check__input" type="radio" name="choice" value="good" checked>
+				<span class="recall-check__label">Скорее положительное</span>
+			</label>
+			<label class="recall-check	recall-block__recall-check">
+				<input class="recall-check__input" type="radio" name="choice" value="bad" checked>
+				<span class="recall-check__label">Скорее трицательное</span>
+			</label>
+			<label class="recall-check	recall-block__recall-check">
+				<input class="recall-check__input" type="radio" name="choice" value="difficult" checked>
+				<span class="recall-check__label">затрудняюсь ответить</span>
+			</label>
+		</fieldset>
+		<fieldset class="recall-block">
+			<legend class="recall-block__title">Посещённые достопримечательности:</legend>
+			<label class="recall-check	recall-block__recall-check">
+				<input type="checkbox" class="recall-check__input" name="visit" value="devils-bridge" checked>
+				<span class="recall-check__label">Мост Дьявола</span>
+			</label>
+			<label class="recall-check	recall-block__recall-check">
+				<input class="recall-check__input" type="checkbox" name="visit" value="mount-bell" checked>
+				<span class="recall-check__label">Гора-Колокол</span>
+			</label>
+			<label class="recall-check	recall-block__recall-check">
+				<input class="recall-check__input" type="checkbox" name="visit" value="slide-park" id="slide-park" checked>
+				<span class="recall-check__label">Слайд-парк</span>
+			</label>
+			<label class="recall-check	recall-block__recall-check">
+				<input class="recall-check__input" type="checkbox" name=" visit" value="red-cliffs" checked>
+				<span class="recall-check__label">Красные скалы</span>
+			</label>
+		</fieldset>
+		<fieldset class="recall-block">
+			<legend class="recall-block__title">
+				Опишите свои эмоции:
+			</legend>
+			<div class="recall-item	recall-block__recall-item">
+				<textaria class="recall-item__input" name="emotion" cols="30" rows="10" placeholder="Опишите подробно все свои восторги"></textaria>
+				<button class="button" type="submit">
+					<span class="button__text">Отправить отзыв</span>
+				</button>
+				<span class="recall-item__notice">* — обязательные поля</span>
+			</div>
+		</fieldset>
+	</form>
+</main>
+<footer class="main-footer">
+	<div class="container">
+		<h2 class="tag">#visitsedona</h2>
+		<div class="social">
+			<a href="#" class="social__button"></a>
+			<a href="#" class="social__button"></a>
+			<a href="#" class="social__button"></a>
+		</div>
+		<div class="development">Разработано
+			<a href="#" class="development__copyright">
+				<img class="development__picture" src="img/htmlacademy.svg" width="27" height="35" alt="HTML Academy">
+			</a>
+		</div>
+	</div>
+</footer>
+
+<script src = "js/libs.min.js"></script>
+<script src = "js/main.js"></script>
+</body>
+</html>
