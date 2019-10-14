@@ -1,0 +1,28 @@
+.logo {
+  position: relative;
+  left: 76px;
+  order: 2;
+  z-index: 10;
+}
+
+
+@media #{$tablet-widths} {
+  .logo {
+    position: absolute;
+    margin-bottom: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+}
+
+
+
+@media #{$desktop-widths} {
+  .logo {
+    width: auto;
+    height: auto;
+  }
+}
+

@@ -1,0 +1,17 @@
+@import "vars";
+@import "fonts";
+@import "libs";
+@import "_mixins/mixins-style";
+@import "blocks/body";
+@import "blocks/main-header";
+@import "blocks/main-menu";
+@import "blocks/logo";
+@import "blocks/burger-button";
+@import "blocks/container-wrap";
+@import "blocks/info-section";
+
+
+
+
+
+@import "media"; // Always at the end
