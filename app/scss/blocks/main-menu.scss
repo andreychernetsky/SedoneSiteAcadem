@@ -1,0 +1,124 @@
+:root {
+  --main-bg-color: #81b3b2;
+  --menu-bottom-border: #678fa8;
+  --color-hover: #669eco;
+  --black: #000;
+}
+
+.main-menu {
+  display: none;
+  min-width: $body-width;
+  &__no-js {
+    display: block;
+  }
+  &__list {
+    margin: 0;
+    padding: 0;
+  }
+  &__modal-content-show {
+    display: block;
+    animation: bounce 0.65s;
+  }
+  &__item {
+    display: flex;
+    justify-content: center;
+    height: 56px;
+    align-items: center;
+    position: relative;
+    background-color: var(--main-bg-color);
+    border-top: 1px solid var(--menu-bottom-border);
+    font-family: $basic-font-family;
+    font-size: 18px;
+    line-height: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    &:hover {
+      background-color: var(--color-hover);
+    }
+  }
+  &__cross-button {
+    position: absolute;
+    top: 16px;
+    right: 20px;
+    width: 22px;
+    height: 22px;
+    background-image: url("../../img/icons/icon-cross.svg");
+    background-repeat: no-repeat;
+    cursor: pointer;
+  }
+  &__link {
+    text-decoration: none;
+    color: var(--background-color);
+  }
+  &__link--active {
+    //color:rgba(255,255,255, .3);
+    color: rgba(white, 0.3%)
+  }
+
+}
+
+@media #{$tablet-widths} {
+  .main-menu {
+    display: block;
+    &__list {
+      display: flex;
+      width: 768px;
+    }
+    &__item {
+      min-height: 56px;
+      width: 20%;
+      background-color: var(--background-color);
+      border: 0;
+      font-size: 14px;
+      line-height: 26px;
+      &:hover {
+        background-color: transparent;
+      }
+    }
+    &__item--third {
+      margin-left: auto;
+    }
+
+    &__link {
+      display: block;
+      padding: 15px 0;
+      color: var(--black);
+      &:hover {
+        color: #81b3d2;
+      }
+      &:active {
+        color: rgba(0, 0, 0, .3);
+      }
+    }
+    &__link--active {
+      color: #766357;
+      &:hover {
+        color: #604e43;
+      }
+
+      &:active {
+        color: rgba(118, 99, 87, .3);
+      }
+    }
+  }
+
+}
+
+@media #{$desktop-widths} {
+  .main-menu {
+    &__list {
+      width: 1200px;
+    }
+    &__item {
+      &--main {
+        margin-left: 91px;
+      }
+      &--html-academy {
+        margin-left: 137px;
+        margin-right: 70px;
+      }
+    }
+  }
+}
+
+

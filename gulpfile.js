@@ -1,131 +1,113 @@
-var syntax         = 'scss', // Syntax: sass or scss;
-		gulpVersion    = '4'; // Gulp version: 3 or 4
-		gmWatch        = true; // ON/OFF GraphicsMagick watching "img/_src" folder (true/false). Linux install gm: sudo apt update; sudo apt install graphicsmagick
+const gulp = require('gulp'),// Подключаем Gulp
+  sass = require('gulp-sass'),//Подключаем Sass пакет,
+  browserSync = require('browser-sync'), // Подключаем Browser Sync
+  concat = require('gulp-concat'), // Подключаем gulp-concat (для конкатенации файлов)
+  cssnano    = require('gulp-cssnano'), // Подключаем пакет для минификации CSS
+  uglify = require('gulp-uglify'), // Подключаем gulp-uglifyjs (для сжатия JS)
+  rename = require('gulp-rename'),// Подключаем библиотеку для переименования файлов
+  del    = require('del'), // Подключаем библиотеку для удаления файлов и папок
+  imagemin = require('gulp-imagemin'), // Подключаем библиотеку для работы с изображениями
+  cache  = require('gulp-cache'), // Подключаем библиотеку кеширования
+  autoprefixer = require('gulp-autoprefixer'),// Подключаем библиотеку для автоматического
+  // добавления префиксов
+  babel = require('gulp-babel');
 
-var gulp          = require('gulp'),
-		gutil         = require('gulp-util' ),
-		sass          = require('gulp-sass'),
-		browserSync   = require('browser-sync'),
-		concat        = require('gulp-concat'),
-		uglify        = require('gulp-uglify'),
-		cleancss      = require('gulp-clean-css'),
-		rename        = require('gulp-rename'),
-		autoprefixer  = require('gulp-autoprefixer'),
-		notify        = require('gulp-notify'),
-		rsync         = require('gulp-rsync'),
-		imageResize   = require('gulp-image-resize'),
-		imagemin      = require('gulp-imagemin'),
-		del           = require('del');
-
-// Local Server
-gulp.task('browser-sync', function() {
-	browserSync({
-		server: {
-			baseDir: 'app'
-		},
-		notify:true,
-		// open: false,
-		// online: false, // Work Offline Without Internet Connection
-		// tunnel: true, tunnel: "projectname", // Demonstration page: http://projectname.localtunnel.me
-	})
+gulp.task('scss', ()=> {// Создаем таск Sass
+  return gulp.src('app/scss/*.scss')// Берем источник
+    .pipe(sass({outputStyle: 'compressed'})) //compressed, expanded
+    .pipe(autoprefixer(['last 2 versions', 'ie 11'], {cascade: true})) // Создаем префиксы
+  /*  .pipe(rename({suffix: '.min'}))// при сжатие добавляет min*/
+    .pipe(gulp.dest('app/css'))
+    .pipe(browserSync.reload({stream: true})) // Обновляем CSS на странице при изменении
 });
 
-// Sass|Scss Styles
-gulp.task('styles', function() {
-	return gulp.src('app/'+syntax+'/**/*.'+syntax+'')
-	.pipe(sass({ outputStyle: 'expanded' }).on("error", notify.onError()))
-	.pipe(rename({ suffix: '.min', prefix : '' }))
-	.pipe(autoprefixer(['last 15 versions']))
-	.pipe(cleancss( {level: { 1: { specialComments: 0 } } })) // Opt., comment out when debugging
-	.pipe(gulp.dest('app/css'))
-	.pipe(browserSync.stream())
+gulp.task('browser-sync',()=> { // Создаем таск browser-sync
+  browserSync.init({ // Выполняем browserSync
+    server: { // Определяем параметры сервера
+      baseDir: 'app/' // Директория для сервера - app
+    },
+    notify: false // Отключаем уведомления
+  });
 });
 
-// JS
-gulp.task('scripts', function() {
-	return gulp.src([
-		'app/libs/jquery/dist/jquery.min.js',
-		'app/js/common.js', // Always at the end
-		])
-	.pipe(concat('scripts.min.js'))
-	// .pipe(uglify()) // Mifify js (opt.)
-	.pipe(gulp.dest('app/js'))
-	.pipe(browserSync.reload({ stream: true }))
+gulp.task('libs', ()=>{
+  return gulp.src([
+    // Берем jQuery
+  ])
+    .pipe(concat('libs.min.js'))//даем название сжатому файлу
+    .pipe(uglify())
+    .pipe(gulp.dest('app/js'))
+    .pipe(browserSync.reload({stream: true}))
 });
 
-// HTML Live Reload
-gulp.task('code', function() {
-	return gulp.src('app/*.html')
-	.pipe(browserSync.reload({ stream: true }))
+gulp.task('scripts', ()=> {
+  return gulp.src('app/js/*.js')
+  /*  .pipe(babel({
+      presets: ['@babel/env']
+    }))
+    .pipe(uglify())
+    .pipe(gulp.dest('dist'))*/
+    .pipe(browserSync.reload({stream: true}))
 });
 
-// Deploy
-gulp.task('rsync', function() {
-	return gulp.src('app/**')
-	.pipe(rsync({
-		root: 'app/',
-		hostname: 'username@yousite.com',
-		destination: 'yousite/public_html/',
-		// include: ['*.htaccess'], // Includes files to deploy
-		exclude: ['**/Thumbs.db', '**/*.DS_Store'], // Excludes files from deploy
-		recursive: true,
-		archive: true,
-		silent: false,
-		compress: true
-	}))
+gulp.task('html',()=> {
+  return gulp.src('app/*.html')
+    .pipe(browserSync.reload({stream: true}))
 });
 
-// Images @x1 & @x2 + Compression | Required graphicsmagick (sudo apt update; sudo apt install graphicsmagick)
-gulp.task('img1x', function() {
-	return gulp.src('app/img/_src/**/*.*')
-	.pipe(imageResize({ width: '50%' }))
-	.pipe(imagemin())
-	.pipe(gulp.dest('app/img/@1x/'))
-});
-gulp.task('img2x', function() {
-	return gulp.src('app/img/_src/**/*.*')
-	.pipe(imageResize({ width: '100%' }))
-	.pipe(imagemin())
-	.pipe(gulp.dest('app/img/@2x/'))
+gulp.task('css-libs', ()=> {
+  return gulp.src('app/scss/libs/libs.scss') // Выбираем файл для минификации
+    .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
+    .pipe(cssnano()) // Сжимаем
+    .pipe(rename({suffix: '.min'})) // Добавляем суффикс .min
+    .pipe(gulp.dest('app/css')); // Выгружаем в папку app/css
 });
 
-// Clean @*x IMG's
-gulp.task('cleanimg', function() {
-	return del(['app/img/@*'], { force:true })
+gulp.task('clean', async ()=> {
+  return del.sync('dist'); // Удаляем папку dist перед сборкой
 });
 
-// If Gulp Version 3
-if (gulpVersion == 3) {
+gulp.task('img', ()=>{
+  return gulp.src('app/img/**/*')// Берем все изображения из app
+    .pipe(cache(imagemin({// С кешированием
+// .pipe(imagemin({ // Сжимаем изображения без кеширования
+      interlaced:true,
+      progressive:true,
+      svgoPlugins: [{removeViewBox: false}],
+      use: [pngquant()]
+  })))
+    .pipe(gulp.dest('dist/img')); // Выгружаем на продакшен
+});
 
-	// Img Processing Task for Gulp 3
-	gulp.task('img', ['img1x', 'img2x']);
-	
-	var taskArr = ['styles', 'scripts', 'browser-sync'];
-	gmWatch && taskArr.unshift('img');
+gulp.task('prebuild', async ()=> {
 
-	gulp.task('watch', taskArr, function() {
-		gulp.watch('app/'+syntax+'/**/*.'+syntax+'', ['styles']);
-		gulp.watch(['libs/**/*.js', 'app/js/common.js'], ['scripts']);
-		gulp.watch('app/*.html', ['code']);
-		gmWatch && gulp.watch('app/img/_src/**/*', ['img']);
-	});
-	gulp.task('default', ['watch']);
+  const buildCss = gulp.src([ // Переносим библиотеки в продакшен
+    'app/css/main.css',
+    'app/css/libs.min.css'
+  ])
+    .pipe(gulp.dest('dist/css'))
 
-};
+  const buildFonts = gulp.src('app/fonts/**/*') // Переносим шрифты в продакшен
+    .pipe(gulp.dest('dist/fonts'))
 
-// If Gulp Version 4
-if (gulpVersion == 4) {
+  const buildJs = gulp.src('app/js/**/*') // Переносим скрипты в продакшен
+    .pipe(gulp.dest('dist/js'))
 
-	// Img Processing Task for Gulp 4
-	gulp.task('img', gulp.parallel('img1x', 'img2x'));
+  const buildHtml = gulp.src('app/*.html') // Переносим HTML в продакшен
+    .pipe(gulp.dest('dist'));
 
-	gulp.task('watch', function() {
-		gulp.watch('app/'+syntax+'/**/*.'+syntax+'', gulp.parallel('styles'));
-		gulp.watch(['libs/**/*.js', 'app/js/common.js'], gulp.parallel('scripts'));
-		gulp.watch('app/*.html', gulp.parallel('code'));
-		gmWatch && gulp.watch('app/img/_src/**/*', gulp.parallel('img')); // GraphicsMagick watching image sources if allowed.
-	});
-	gmWatch ? gulp.task('default', gulp.parallel('img', 'styles', 'scripts', 'browser-sync', 'watch')) 
-					: gulp.task('default', gulp.parallel('styles', 'scripts', 'browser-sync', 'watch'));
+});
 
-};
+gulp.task('clear', (callback)=> {
+  return cache.clearAll();
+});
+
+gulp.task('watch', ()=> {
+  gulp.watch('app/scss/**/*.scss', gulp.parallel('scss'));// Наблюдение за sass файлами
+  gulp.watch('app/*.html', gulp.parallel('html')); // Наблюдение за HTML файлами в корне проекта
+  gulp.watch(['app/js/main.js', 'app/libs/**/*.js'], gulp.parallel('scripts')); // Наблюдение за главным JS файлом и за библиотеками
+});
+
+gulp.task('default', gulp.parallel('css-libs', 'scss', 'scripts', 'browser-sync', 'watch'));
+gulp.task('build', gulp.parallel('prebuild', 'clean', 'img', 'scss', 'scripts'));
+
