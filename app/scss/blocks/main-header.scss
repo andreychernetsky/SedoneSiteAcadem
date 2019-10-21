@@ -1,4 +1,6 @@
-
+:root{
+  --background-color: #fff;
+}
 .main-header {
   display: flex;
   position: relative;
@@ -7,17 +9,17 @@
   background-color:var(--background-color);
   @media #{$tablet-widths} {
     height: 56px;
-
   }
   &__menu-button {
     position: relative;
-    margin-top: 15px;
-    margin-bottom: 15px;
-    margin-left: auto;
-    margin-right: 40px;
+    margin:15px 30px 15px auto;
     order: 3;
+    @media #{$tablet-widths}{
+      display: none;
+    }
   }
 }
+
 
 
 
