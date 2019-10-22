@@ -1,2 +1,10 @@
-.ideaСедона не аттракцион для туристов,
-                 там течет своя жизнь
+.DS_Store
+.idea
+*.ai
+*.log
+*.pdf
+*.psd
+*.sublime*
+node_modules/
+build/
+Thumbs.db

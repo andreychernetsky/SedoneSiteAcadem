@@ -1,0 +1,134 @@
+:root {
+  --background-header: #fff;
+  --main-bg-color: #81b3b2;
+  --feature-befor: #d6d6d6;
+  --back: #000;
+}
+
+.feature {
+  position: relative;
+  color: var(--background-header);
+  &--befor-border::before { //для моьилки
+    content: "";
+    position: absolute;
+    top: -1px;
+    left: 20px;
+    width: 280px;
+    height: 1px;
+    background-color: var(--feature-befor);
+  }
+ /* &__image {
+    display: block;
+    margin:0 auto;
+    width:$body-width;
+    overflow: hidden;
+  }
+  &__picture {
+    height:auto;
+    width:$body-width;
+  }*/
+  &__fact--real-town {
+    position: relative;
+    padding: 35px;
+    &::before {
+      content: "";
+      margin:auto;
+      position: absolute;
+      height: 40px;
+      width: 320px;
+      top: 0;
+      left: 0;
+      right: 0;
+      background-image: url("../../img/bg-triangle.svg");
+      background-repeat: no-repeat;
+    }
+  }
+  &__fact {
+    @include container;
+    font-family: $basic-font-family;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+    background-color: var(--main-bg-color);
+    text-transform: uppercase;
+    padding-bottom: 40px;
+  }
+  &__fact--theme-grey {
+    background-color: #EEE;
+    color: var(--back);
+    padding: 0 35px 28px 35px;
+  }
+  &__title {
+    padding-top: 41px;
+    line-height: 26px;
+    font-size: 18px;
+    margin: 0;
+  }
+  &__text {
+    font-size: 14px;
+    margin-top: 14px;
+  }
+}
+
+@media #{$tablet-widths} {
+  .feature {
+    display: flex;
+    font-size: 0;
+   /* &--befor-border::after {
+      display: none;
+    }*/
+  } ;
+  &__fact {
+    width: 256px;
+    min-height: 256px;
+    padding: 0 40px 0 45px;
+  }
+/*  &__fact--theme-grey {
+    padding-left: 50px;
+    padding-right: 50px;
+  }
+  &__fact--devil-bridge {
+    order: 2;
+  }*/
+  &__title {
+    font-size: 21px;
+    padding-top: 45px;
+  }
+ /* &__text {
+    margin-top: 10px;
+    margin-bottom: 20px;
+  }*/
+  &__image {
+    width: 512px;
+    position: relative;
+    height: auto;
+    margin: 0;
+  }
+  &__picture {
+    width: 512px;
+  }
+}
+@media #{$desktop-widths} {
+  .feature__fact {
+    width: 400px;
+    padding:55px 55px;
+    &__title {
+      width: 160px;
+      padding-top: 50px;
+      margin: auto;
+    }
+  }
+  &__image {
+    width: 800px;
+    position: relative;
+    overflow: hidden;
+  }
+  &__picture {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 800px;
+    height:auto;
+    transform: translate(-50%,-50%);
+  }
+}

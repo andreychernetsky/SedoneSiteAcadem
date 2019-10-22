@@ -1,0 +1,47 @@
+
+.burger-button {
+  position: absolute;
+  z-index: 300;
+  width: 40px;
+  height: 40px;
+  border: 0;
+  cursor: pointer;
+  background-color: transparent;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &__icon-bars,
+  &__icon-bars::before,
+  &__icon-bars::after {
+    position: absolute;
+    z-index: 800;
+    width: 20px;
+    height: 4px;
+    background: #81B3D3;
+    /* left: 50%;
+     top: 50%;
+     margin-left: -10px;
+     margin-top: -1px;*/
+  }
+  &__icon-bars::after,
+  &__icon-bars::before {
+    content: '';
+    display: block;
+    transition: 0.2s;
+  }
+  &__icon-bars::before {
+    transform: translateY(-10px);
+  }
+  &__icon-bars::after {
+    transform: translateY(10px);
+
+  }
+
+}
+
+@media #{$tablet-widths} {
+  .burger-button {
+    display: none;
+  }
+}

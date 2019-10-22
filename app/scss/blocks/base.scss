@@ -1,0 +1,33 @@
+:root {
+  --bodyColor:#f1f1f1;
+  --colorBorders:0px 5px 15px 0px rgba(0, 0, 0, 0.2);
+  --black:#000;
+  --background-header: #fff;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+html {
+  box-sizing: border-box;
+}
+.body {
+  font-family: $basic-font-family;
+  width: $body-width;
+  margin: 0 auto;
+  text-align: center;
+  background-color:var(--bodyColor);
+
+  @media #{$tablet-widths} {
+    width: 768px
+  }
+
+  @media #{$desktop-widths} {
+    width: 1200px;
+    box-shadow:var(--colorBorders);
+  }
+}
