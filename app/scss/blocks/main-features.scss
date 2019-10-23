@@ -2,24 +2,24 @@
   --black: #000;
   --color-reasons: #333;
 }
-
 .main-features {
   font-family: $basic-font-family;
   text-transform: uppercase;
   @include container;
   padding-top: 35px;
-  padding-left: 0px;
+  padding-left: 0;
   padding-bottom: 5px;
   &__advice {
-    text-align: center;
+    text-align: left;
     padding-left: 70px;
   }
   &__title {
     position: relative;
     font-size: 18px;
     font-weight: 700;
-    line-height: 36px;
-    color: var(--black);
+    line-height: 26px;
+    color:var(--black);
+    margin: 0;
     margin-bottom: 14px;
     &::before {
       content: "";
@@ -35,19 +35,21 @@
     &--house::before {
       background-image: url("../../img/icons/icon-house.svg");
     }
+
     &--souvenir::before {
       background-image: url("../../img/icons/icon-gift.svg");
     }
+
     &--food::before {
       background-image: url("../../img/icons/icon-burger.svg");
     }
-
   }
   &__text {
     font-size: 14px;
     line-height: 21px;
     font-weight: 400;
-    color: var(--color-reasons);
+    color:var( --color-reasons);
+    margin: 0;
     margin-bottom: 27px;
   }
 
@@ -56,24 +58,25 @@
 @media #{$tablet-widths} {
   .main-features {
     display: flex;
-    padding-top: 120px;
+    padding: 0;
     justify-content: center;
     &__advice {
       text-align: center;
       width: 256px;
-     /* &--house {
+      padding: 0 45px;
+      padding-top: 160px;
+      box-sizing: border-box;
+      &--house {
         order: 1;
       }
-
       &--souvenir {
         order: 3;
       }
-
       &--food {
         order: 2;
         padding-left: 50px;
         padding-right: 50px;
-      }*/
+      }
     }
     &__title {
       font-size: 21px;
@@ -97,7 +100,6 @@
     }
   }
 }
-
 @media #{$desktop-widths} {
   .main-features__advice {
     width: 400px;

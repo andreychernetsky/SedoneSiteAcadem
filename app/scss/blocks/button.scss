@@ -1,0 +1,24 @@
+:root {
+  --main-bg-color: #81b3b2;
+  --background-header: #fff;
+  --color-hover: #669ec0;
+}
+
+.button {
+  border: 0;
+  background-color: var(--main-bg-color);
+  color: var(--background-header);
+  font-family: $basic-font-family;
+  text-align: center;
+  text-transform: uppercase;
+  cursor: pointer;
+  &:hover {
+    background-color: var(--color-hover);
+  }
+  &:active {
+    color: rgba(255, 255, 255, .3);
+  }
+  &__text {
+    align-items: center;
+  }
+}

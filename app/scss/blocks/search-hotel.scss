@@ -1,0 +1,34 @@
+:root {
+  --black:#000;
+  --color-reasons: #333;
+}
+.search-hotel {
+  padding: 30px 49px;
+  @include container();
+  &__title {
+    font-size: 21px;
+    font-weight:700;
+    color: var(--black);
+  }
+  &__text {
+    font-size: 14px;
+    line-height: 24px;
+    font-weight: 400;
+    color: var(--color-reasons);
+    margin: 0 0 35px 0;
+  }
+}
+
+@media #{$tablet-widths}{
+  .search-hotel {
+    width: 458px;
+    padding: 56px 60px;
+  }
+  &__title {
+    font-size: 30px;
+    margin-bottom: 30px;
+  }
+  &__text {
+    margin-bottom: 41px;
+  }
+}
