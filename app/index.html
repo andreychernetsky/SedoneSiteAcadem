@@ -7,14 +7,40 @@
 	<link rel="stylesheet" href="css/style.css">
 </head>
 <body class="body">
-
+<!-- Sprite -->
+<svg style="display: none;">
+	<symbol  id="facebook" viewBox="0 0 32 32" >
+		<g>
+			<path d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h13v-14h-4v-4h4v-2c0-3.306 2.694-6 6-6h4v4h-4c-1.1 0-2 0.9-2 2v2h6l-1 4h-5v14h9c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3z"></path>
+		</g>
+	</symbol>
+	
+	<symbol id="vk" viewBox="0 0 32 32">
+	<g>
+		<path d="M29 0h-26c-1.65 0-3 1.35-3 3v26c0 1.65 1.35 3 3 3h26c1.65 0 3-1.35 3-3v-26c0-1.65-1.35-3-3-3zM25.919 22.4l-2.925 0.044c0 0-0.631 0.125-1.456-0.444-1.094-0.75-2.125-2.706-2.931-2.45-0.813 0.256-0.788 2.012-0.788 2.012s0.006 0.375-0.181 0.575c-0.2 0.219-0.6 0.262-0.6 0.262h-1.306c0 0-2.888 0.175-5.431-2.475-2.775-2.887-5.225-8.619-5.225-8.619s-0.144-0.375 0.013-0.556c0.175-0.206 0.644-0.219 0.644-0.219l3.131-0.019c0 0 0.294 0.050 0.506 0.206 0.175 0.125 0.269 0.369 0.269 0.369s0.506 1.281 1.175 2.438c1.306 2.256 1.919 2.75 2.362 2.513 0.644-0.35 0.45-3.194 0.45-3.194s0.012-1.031-0.325-1.488c-0.262-0.356-0.756-0.463-0.969-0.488-0.175-0.025 0.113-0.431 0.488-0.619 0.563-0.275 1.556-0.294 2.731-0.281 0.913 0.006 1.181 0.069 1.538 0.15 1.081 0.262 0.712 1.269 0.712 3.681 0 0.775-0.137 1.863 0.419 2.219 0.238 0.156 0.825 0.025 2.294-2.469 0.694-1.181 1.219-2.569 1.219-2.569s0.113-0.25 0.288-0.356c0.181-0.106 0.425-0.075 0.425-0.075l3.294-0.019c0 0 0.988-0.119 1.15 0.331 0.169 0.469-0.369 1.563-1.712 3.356-2.206 2.944-2.456 2.669-0.619 4.369 1.75 1.625 2.113 2.419 2.175 2.519 0.712 1.2-0.813 1.294-0.813 1.294z"></path>
+	</g>
+	</symbol>
+	
+	<symbol id="youtube" viewBox="0 0 32 32">
+		<g>
+			<path d="M31.681 9.6c0 0-0.313-2.206-1.275-3.175-1.219-1.275-2.581-1.281-3.206-1.356-4.475-0.325-11.194-0.325-11.194-0.325h-0.012c0 0-6.719 0-11.194 0.325-0.625 0.075-1.987 0.081-3.206 1.356-0.963 0.969-1.269 3.175-1.269 3.175s-0.319 2.588-0.319 5.181v2.425c0 2.587 0.319 5.181 0.319 5.181s0.313 2.206 1.269 3.175c1.219 1.275 2.819 1.231 3.531 1.369 2.563 0.244 10.881 0.319 10.881 0.319s6.725-0.012 11.2-0.331c0.625-0.075 1.988-0.081 3.206-1.356 0.962-0.969 1.275-3.175 1.275-3.175s0.319-2.587 0.319-5.181v-2.425c-0.006-2.588-0.325-5.181-0.325-5.181zM12.694 20.15v-8.994l8.644 4.513-8.644 4.481z"></path>
+		</g>
+	</symbol>
+	
+	<symbol id="htmlA" viewBox="0 0 60 60">
+		<g>
+			<path fill="#2E368F" d="M30.2 5h-.2l-19.7 2.1v36.2l19.7 11.7 19.7-11.7v-36.2l-19.5-2.1zm17 36.8l-17.2 10.2-17.2-10.2v-14.8l17.1 10.2v1.8l-11.7-7v1.8l11.8 7.1v1.9l-11.8-7v1.8l11.8 7 11.9-7.1v-7.6l5.3-3.2v15.1zm-.1-17l-4.7 2.8-2.2 1.3-10.3-6.1v1.8l8.8 5.3h-.1l-.2.1-1.3.7-7.3-4.3v1.8l5.8 3.4-1.4.9-4.3-2.6v1.8l2.9 1.7-2.9 1.7-17-10.1 17-10.2 17.2 10zm.1-1.8l-17.3-10.2-17.1 10.2v-13.6l17.2-1.8 17.2 1.8v13.6z">
+			</path>
+		</g>
+	</symbol>
+</svg>
 <header class="main-header">
 	<div class="logo">
 		<picture>
 			<source media="(min-width:1200px)" srcset="img/logo/logo-sedona-desktop.svg">
 			<source media="(min-width:768px)" srcset="img/logo/logo-sedona-tablet.svg">
 			<source media="(min-width:320px)" srcset="img/logo/logo-sedona-mobile.svg">
-			<img class="logo__picture" width="102" height="83" src="img/logo-sedona-desktop.svg" alt="City of Sedona">
+			<img class="logo__picture" width="102" height="83" src="img/logo/logo-sedona-desktop.svg" alt="City of Sedona">
 		</picture>
 	</div>
 	<div class="main-header__menu-button">
@@ -108,7 +134,6 @@
 			</div>
 		</section>
 		<section class="feature">
-			<!--модификатор feature__fact&#45;&#45;theme-grey меняет цвет только в трех блоках,но оставляет прежним-->
 			<div class="feature__fact feature__fact--theme-grey">
 				<h2 class="feature__title feature__title--theme-grey">Небольшая площадь</h2>
 				<p class="feature__text feature__text--theme-grey">&#8211; 3 &#8211;</p>
@@ -143,19 +168,32 @@
 	</div>
 </main>
 <footer class="main-footer">
-	<div class="container">
 		<h2 class="tag">#visitsedona</h2>
 		<div class="social">
-			<a href="#" class="social__button"></a>
-			<a href="#" class="social__button"></a>
-			<a href="#" class="social__button"></a>
-		</div>
-		<div class="development">Разработано
-			<a href="#" class="development__copyright">
-				<img class="development__picture" src="img/htmlacademy.svg" width="27" height="35" alt="HTML Academy">
+			<a class="social__item" href="#" target="_blank">
+				<svg class="social__icon">
+					<use xlink:href="#facebook"></use>
+				</svg>
+			</a>
+			<a class="social__item" href="#" target="_blank">
+				<svg class="social__icon">
+					<use xlink:href="#vk"></use>
+				</svg>
+			</a>
+			<a class="social__item" href="#" target="_blank">
+				<svg class="social__icon">
+					<use xlink:href="#youtube"></use>
+				</svg>
 			</a>
 		</div>
-	</div>
+		<div class="development">
+			<span class="development__text">Разработано</span>
+			<a href="#" class="development__copyright">
+				<svg class="development__icon">
+					<use xlink:href="#htmlA"></use>
+				</svg>
+			</a>
+		</div>
 </footer>
 <script src="js/libs.min.js"></script>
 <script src="js/main.js"></script>
