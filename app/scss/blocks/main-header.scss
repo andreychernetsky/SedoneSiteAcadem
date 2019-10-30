@@ -1,22 +1,28 @@
+:root{
+  --background-color: #fff;
+}
 .main-header {
-  width:100%;
   display: flex;
   position: relative;
   flex-wrap: wrap;
   margin: 0 auto;
-  background-color:var(--background-header);
+  background-color:var(--background-color);
   @media #{$tablet-widths} {
     height: 56px;
-    width: 100%;
   }
   &__menu-button {
     position: relative;
+    margin-top: 15px;
+    margin-bottom: 15px;
     margin-left: auto;
-    margin-right: 40px;
+    margin-right: 20px;
     order: 3;
   }
 }
 
 
 
+//.main-header__menu {
+//  order: 1;
+//}
 

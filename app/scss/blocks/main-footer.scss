@@ -19,7 +19,34 @@
     font-weight: 700;
     padding: 0 0 15px 0;
   }
-
+  &__copyright {
+    padding: 15px 0 0 0;
+    display: flex;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 40px;
+    margin-top: 37px;
+    // margin-bottom: 23px;
+    margin-bottom: 0;
+    align-items: center;
+    justify-content: center;
+  }
+  &__copyright-icon {
+    width: 27px;
+    height: 34px;
+    font-size: 0;
+    margin-left: 11px;
+    color:var(--black);
+    &:hover {
+      color:var(--main-bg-color);
+    }
+    &:active {
+      color: rgba(0, 0, 0, .3);
+    }
+  }
+  &__copyright-image {
+    fill: currentColor;
+  }
 }
 @media #{$tablet-widths} {
   .main-footer {
@@ -33,6 +60,9 @@
     &__title {
       margin: 0;
     }
+    &__copyright {
+      margin: 0;
+    }
   }
 }
 @media #{$desktop-widths} {
@@ -41,5 +71,10 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    &__copyright {
+      &--form-margin {
+        margin-right: 76px;
+      }
+    }
   }
 }

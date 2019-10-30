@@ -7,7 +7,7 @@
 
 .feature {
   position: relative;
-  color: var(----background-header);
+  color: var(--background-header);
   &--befor-border::before {
     content: "";
     position: absolute;

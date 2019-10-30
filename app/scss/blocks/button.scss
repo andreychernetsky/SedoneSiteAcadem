@@ -1,24 +1,35 @@
 :root {
-  --main-bg-color: #81b3b2;
+  --black:#000;
   --background-header: #fff;
+  --main-bg-color:#81b3b2;
   --color-hover: #669ec0;
 }
-
 .button {
   border: 0;
-  background-color: var(--main-bg-color);
-  color: var(--background-header);
+  background-color:var(--main-bg-color);
+  color:var(--background-header);
   font-family: $basic-font-family;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
   text-transform: uppercase;
   cursor: pointer;
+
   &:hover {
-    background-color: var(--color-hover);
+    background-color:var(--color-hover);
   }
+
   &:active {
     color: rgba(255, 255, 255, .3);
   }
-  &__text {
-    align-items: center;
+
+  &:disabled {
+    color: #ffffff;
+    background-color: #e5e5e5;
   }
+}
+
+.button__text {
+  margin-left: auto;
+  margin-right: auto;
 }
