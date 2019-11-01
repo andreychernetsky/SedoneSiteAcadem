@@ -1,7 +1,5 @@
 :root {
-  --black:#000;
-  --background-header: #fff;
-  --main-bg-color:#81b3b2;
+
   --color-hover: #669ec0;
 }
 .button {
@@ -24,12 +22,13 @@
   }
 
   &:disabled {
-    color: #ffffff;
+    color:var(--background-header);
     background-color: #e5e5e5;
+  }
+  &__text {
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
-.button__text {
-  margin-left: auto;
-  margin-right: auto;
-}
+

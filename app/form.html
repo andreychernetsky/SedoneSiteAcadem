@@ -40,7 +40,7 @@
 	</nav>
 </header>
 
-<main class="container">
+<main class="main-container">
 		<section class="info-section">
 			<div class="info-section__image">
 				<img class="info-section__index-text" src="img/logo/text-sedona-index.svg" alt="Sedona slogan">
@@ -52,13 +52,13 @@
 				</p>
 			</div>
 		</section>
-		<form action="https://echo.htmlacademy.ru" method="post">
-				<fieldset class="recall-block">
-					<legend class="recall-block__title">
+		<form class="feedback-form" action="https://echo.htmlacademy.ru" method="post">
+				<fieldset class="feedback-form__contact-info feedback-form__contact-info--full-name">
+					<legend class="feedback-form__title feedback-form__title--full-name">
 						представьтесь:
 					</legend>
-					<label class="recall-item recall-block__recall-item">
-						<span class="recall-item__name">Имя<sup>*</sup>:</span>
+					<label class="field-label feedback-form__field-label">
+						<span class="field-label__name">Имя<sup>*</sup>:</span>
 						<input class="recall-item__input" type="text" name="name" placeholder="Пётр" required>
 					</label>
 					<label class="recall-item recall-block__recall-item">
@@ -134,18 +134,31 @@
 		</form>
 </main>
 <footer class="main-footer">
-	<div class="container">
-		<h2 class="tag">#visitsedona</h2>
-		<div class="social">
-			<a href="#" class="social__button"></a>
-			<a href="#" class="social__button"></a>
-			<a href="#" class="social__button"></a>
-		</div>
-		<div class="development">Разработано
-			<a href="#" class="development__copyright">
-				<img class="development__picture" src="img/htmlacademy.svg" width="27" height="35" alt="HTML Academy">
-			</a>
-		</div>
+	<h2 class="tag">#visitsedona</h2>
+	<div class="social">
+		<a class="social__item" href="#" target="_blank">
+			<svg class="social__icon">
+				<use xlink:href="#facebook"></use>
+			</svg>
+		</a>
+		<a class="social__item" href="#" target="_blank">
+			<svg class="social__icon">
+				<use xlink:href="#vk"></use>
+			</svg>
+		</a>
+		<a class="social__item" href="#" target="_blank">
+			<svg class="social__icon">
+				<use xlink:href="#youtube"></use>
+			</svg>
+		</a>
+	</div>
+	<div class="development">
+		<span class="development__text">Разработано</span>
+		<a href="#" class="development__copyright">
+			<svg class="development__icon">
+				<use xlink:href="#htmlA"></use>
+			</svg>
+		</a>
 	</div>
 </footer>
 
