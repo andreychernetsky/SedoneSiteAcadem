@@ -1,0 +1,40 @@
+:root {
+  --main-bg-color: #81b3b2;
+}
+.social {
+  display: flex;
+  height: 48px;
+  width: 151px;
+  justify-content: space-between;
+  box-sizing: border-box;
+  margin: 0 auto;
+  &__icon {
+    display: flex;
+    width: 46px;
+    height: 48px;
+    background-color:var(--main-bg-color);
+    font-size: 0;
+    color: #ffffff;
+    justify-content: center;
+    align-items: center;
+    &:hover {
+      background-color: #669ec0;
+    }
+
+    &:active {
+      color: rgba(255, 255, 255, .3);
+    }
+  }
+  &__icon {
+    fill: currentColor;
+  }
+}
+
+@include responsive($md){
+  .social {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+}

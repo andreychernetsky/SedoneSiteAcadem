@@ -1,0 +1,40 @@
+
+.contact-info {
+  width: 100%;
+  display: flex;
+  flex-direction:column;
+  flex-wrap: wrap;
+  &__review,
+  &__introduce {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    @include border();
+  }
+  &__inner {
+    display: flex;
+    flex-direction: column;
+  }
+  &__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #000000;
+    text-transform: uppercase;
+    padding-top: 20px;
+    padding-bottom: 50px;
+  }
+
+  @include responsive($sm){
+      flex-direction: column;
+
+  }
+  @include responsive($lg) {
+    justify-content: space-between;
+    flex-direction: row;
+  }
+}
+
+
+
+

@@ -1,0 +1,40 @@
+.label {
+  width: 100%;
+  display:inline-flex;
+  align-items: center;
+
+  &__checkbox-custom {
+
+    display: block;
+    position: relative;
+    width: 58px;
+    height: 58px;
+    background-color: var(--light-gray-3); //d5d5d5
+    border: 1px solid var(--light-gray-3);
+
+    &--icon-check {
+      position: absolute;
+      background-image: url("../../img/icons/icon-tick.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    &:hover {
+      background-color: var(--light-gray-2);
+      border: 1px solid var(--light-gray-2);
+    }
+    &__active {
+      background-color: var(--gray-3);
+      border: 1px solid var(--gray-3);
+    }
+  }
+  &__label-text {
+    padding-left: 72px;
+    font-size: 18px;
+    font-weight: 700;
+    text-transform: none;
+
+  }
+  &__selector {
+    display: none;
+  }
+}

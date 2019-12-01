@@ -1,0 +1,26 @@
+.logo {
+  margin-bottom: -30px;
+  left: 110px;
+  order: 2;
+  z-index: 10;
+  @include responsive($md){
+    position: absolute;
+    margin-bottom: 0;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+@include responsive($lg){
+  .logo {
+    width: 188px;
+    height: 96px;
+    &__picture {
+      width: auto;
+      height: auto;
+    }
+  }
+
+}
+

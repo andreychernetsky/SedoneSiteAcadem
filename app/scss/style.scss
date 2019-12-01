@@ -1,30 +1,34 @@
 @import "../../node_modules/node-normalize-scss/_normalize";
 
 @import "variables/variables";
-@import "libs/mixins/mixins";
+@import "mixins/mixins";
 @import "libs/libs";
 @import "global/fonts";
-@import "blocks/base";
-@import "blocks/main-header";
-@import "blocks/main-menu";
-@import "blocks/logo";
-@import "blocks/burger-button";
-@import "blocks/container-wrap";
-@import "blocks/info-section";
-@import "blocks/wrap-container";
-@import "blocks/gallery-content";
-@import "blocks/feature";
-@import "blocks/main-features";
-@import "blocks/button";
-@import "blocks/search-hotel";
-@import "blocks/map";
-@import "blocks/picture";
-@import "blocks/video-content";
-@import "blocks/feedback-form";
-@import "blocks/main-footer";
-@import "blocks/social";
-@import "blocks/development";
 
+@import "bloks/responsive";
+
+@import "bloks/base";
+@import "bloks/wrapper";
+@import "bloks/main-header";
+@import "bloks/logo";
+@import "bloks/burger-button";
+@import "bloks/button";
+@import "bloks/main-menu";
+@import "bloks/main-wrap";
+@import "bloks/info-section";
+@import "bloks/picture";
+@import "bloks/feedback-form";
+@import "bloks/contact-info";
+@import "bloks/field-label";
+@import "bloks/contact-wrap";
+@import "bloks/container-wrap";
+@import "bloks/feature";
+@import "bloks/phone";
+@import "bloks/mail";
+@import "bloks/label";
+@import "bloks/social";
+@import "bloks/map";
+@import "bloks/main-footer";
 
 
 

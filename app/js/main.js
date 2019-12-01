@@ -22,7 +22,7 @@ document.getElementById('btn').addEventListener('click', burger);
   const menuMobile = document.querySelector(".main-menu");
   const menuClose = menuMobile.querySelector(".main-menu__cross-button");
 
-  menuMobile.classList.remove("main-menu--no-js");
+  menuMobile.classList.remove("mobyle-js");
 
   menuOpen.addEventListener("click", (event)=> {
     event.preventDefault();

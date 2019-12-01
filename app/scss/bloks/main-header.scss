@@ -1,0 +1,32 @@
+.main-header {
+  max-width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  background-color:var(--white);
+
+
+  &__menu-button {
+    position:absolute;
+    top: 4px;
+    left: 113px;
+    order: 3;
+  }
+}
+@include responsive($md){
+  .main-header{
+    height: 56px;
+  }
+  .burger-button {
+    display: none;
+    &__icon-bars {
+      display: none;
+    }
+
+  }
+}
+
+
+

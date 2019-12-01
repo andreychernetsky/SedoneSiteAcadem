@@ -10,7 +10,7 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
-  color: var(--background-header);
+  color: var(--white);
   &--befor-border::before {
     content: "";
     position: absolute;
@@ -94,7 +94,7 @@
   }
 }
 
-@media #{$tablet-widths} {
+@include responsive($md){
   .feature {
     display: flex;
     flex-direction: column;
@@ -164,7 +164,7 @@
   }
 }
 
-@media #{$desktop-widths} {
+@include responsive($lg){
   .feature {
     &__fact {
       width: 400px;

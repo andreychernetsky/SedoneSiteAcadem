@@ -1,7 +1,68 @@
-$body-width: 320px;
 
 $basic-font-family: "PT Sans", "Arial", sans-serif;
-$phone-widths:"(min-width:320px)";
-$tablet-widths: "(min-width: 768px)";
-$desktop-widths: "(min-width: 1200px)";
+$main-bg-color: #81b3d2;
+$form-input-bg-color: #f2f2f2;
+$menu-bottom-border-color: #678fa8;
+//color css
+//образцы названия переменных
+//—-brand-color
+//—-gutter
+//--color-blue
+//--body-background
+//--main-background
 
+:root{
+
+  //вариант1
+ /* --main-color:#fff;
+  --brand-color:#81b3d2;
+  --color-text:#000;
+  --text:#7d7d7d;
+  --bg-body:#f2f2f2;
+
+  --bg-tem-menu:var(--brand-color);
+  --link-hover:var(--brand-color);
+  --color-link:var(--main-color);
+  --bg-item:var(--main-color);
+
+
+
+  --link-active:#766357;
+
+  --color-icon:#c0d9e8;
+  --bloks-background:#eeeeee;
+
+  //----------------------------------------
+*/
+
+  //вариант 2
+  --gray-1:#f2f2f2;
+  --light-gray-2:#e5e5e5;
+  --light-gray-3:#d5d5d5;
+
+  --white: #fff;
+
+  --light-blue-8: #81b3b2;
+  --light-blue-9: #9ac2db;
+  --light-blue-6: #678fa8;
+  --light-blue-66: #669ec0;
+  --black: #000;
+  --link-hover: #81b3d2;
+  --link-active-hover: #766357;
+  --item-border-top: #9ac2db;
+
+
+  --dark-grey:#333;
+
+}
+
+//size
+$sm:320px;
+$md: 768px;
+$lg:992px;
+$xl:1200px;
+
+//первый варинт медиа запросов
+//$sm:"(min-width:320px)";
+//$md: "(min-width: 768px)";
+//$xl: "(min-width: 1200px)";
