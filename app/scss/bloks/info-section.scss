@@ -4,18 +4,21 @@
 }
 
 .info-section {
+  max-width: 100%;
   font-family: $basic-font-family;
   text-transform: uppercase;
   line-height: 26px;
-  background-color:var(--background-header);
+  background-color:var(--white);
   display: flex;
   flex-direction: column;
   align-items: center;
   &__image {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 320px;
     height: 389px;
-    margin: 0 auto;
     background-image: url("../../img/back/bg-back-mobile@1x.jpg");
     background-color:var(--img-bg);
     background-position: top;
@@ -36,6 +39,7 @@
   }
   &__index-text {
     width: 281px;
+    max-width: 100%;
     margin-top: 90px;
   }
   &__facts {
@@ -47,14 +51,15 @@
   &__promo {
     @include container;
     margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     &--photo {
       margin-top: 37px;
-      padding-left: 25px;
-      padding-right: 25px;
+      padding: 25px 25px;
     }
   }
   &__title {
-    margin: 0 auto;
     font-size: 18px;
     font-weight: 700;
     color:var(--black);
@@ -62,11 +67,12 @@
   &__text {
     font-size: 14px;
     line-height: 24px;
+    text-align: center;
     font-weight: 400;
     color:var(--inf-sec-text);
     text-transform: uppercase;
-    margin-top: 24px;
-    margin-bottom: 16px;
+    margin: 24px 16px;
+
     &--photo-low {
       margin-top: 26px;
       margin-bottom: 27px;
@@ -76,16 +82,16 @@
     font-size: 14px;
     color:var(--inf-sec-text);
     font-weight: 400;
-    margin: 0;
+    text-align: center;
     margin-top: 26px;
     padding-bottom: 5px;
     @include container;
   }
 }
 
-@include responsive($lg){
+@include responsive($md){
   .info-section__image {
-    text-align:center;
+
     width: 768px;
     height: 518px;
     background-image: url("../../img/back/bg-back-tablet@1x.jpg");
@@ -100,13 +106,12 @@
     }
     &__facts {
       padding-top: 50px;
+
     }
     &__text {
       width: 445px;
-      margin-top: 30px;
-      margin-left: auto;
-      margin-right: auto;
-      margin-bottom: 73px;
+      margin: 30px auto 73px;
+      text-align: center;
       &--photo-low {
         //фото и видео margin
         margin-bottom: 70px;

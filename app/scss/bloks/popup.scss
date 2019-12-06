@@ -1,0 +1,150 @@
+.popup {
+  display: block;
+  position: fixed;
+  width: 320px;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  text-transform: uppercase;
+  border: 0;
+  background-color: #ffffff;
+  z-index: 10;
+  box-shadow: 0px 7px 15px 0px rgba(0, 0, 0, 0.15);
+
+  &--success {
+    display: none;
+    min-height: 323px;
+  }
+
+  &--failure {
+    display: none;
+    min-height: 280px;
+  }
+}
+
+.popup__section {
+
+  @include container;
+
+  &--failure {
+    margin-top: 0;
+    padding-top: 42px;
+  }
+
+  &--success {
+    margin-top: 0;
+    padding-top: 45px;
+  }
+}
+
+.popup__title {
+  font-size: 18px;
+  margin: 0;
+  margin-bottom: 35px;
+  line-height: 26px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.popup__text {
+  width: 220px;
+  font-size: 14px;
+  margin-top: 0;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 25px;
+  line-height: 24px;
+  font-weight: 400;
+  color: #333333;
+
+  &--success {
+    margin-bottom: 36px;
+  }
+}
+
+.popup__button {
+  width: 180px;
+  min-height: 58px;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 700;
+
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 35px;
+
+  &--success {
+    width: 280px;
+    margin: 20px;
+  }
+}
+
+.popup__button-container {
+  display: flex;
+  justify-content: center;
+  height: 98px;
+  background-color: $form-input-bg-color;
+}
+
+@include responsive(768px){
+  .popup {
+    margin: 0 auto;
+    box-sizing: border-box;
+
+    &--success {
+      width: 640px;
+      min-height: 347px;
+      padding: 0;
+    }
+
+    &--failure {
+      width: 400px;
+      min-height: 346px;
+    }
+  }
+
+  .popup__section {
+    padding-top: 65px;
+  }
+
+  .popup__title {
+    font-size: 30px;
+    line-height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+
+    &--failure {
+      width: 220px;
+      margin-bottom: 31px;
+    }
+  }
+
+  .popup__button {
+
+    &--success {
+      margin: 44px 91px;
+    }
+  }
+
+  .popup__text {
+
+    &--failure {
+      width: 290px;
+      margin-bottom: 31px;
+    }
+
+    &--success {
+      width: 415px;
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: 39px;
+      box-sizing: border-box;
+    }
+  }
+
+  .popup__button-container {
+    height: 146px;
+  }
+}

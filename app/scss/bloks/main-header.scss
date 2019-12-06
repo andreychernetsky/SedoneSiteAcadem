@@ -8,7 +8,7 @@
   background-color:var(--white);
 
 
-  &__menu-button {
+  &__burger-button {
     position:absolute;
     top: 4px;
     left: 113px;
@@ -17,6 +17,7 @@
 }
 @include responsive($md){
   .main-header{
+    width: 100%;
     height: 56px;
   }
   .burger-button {

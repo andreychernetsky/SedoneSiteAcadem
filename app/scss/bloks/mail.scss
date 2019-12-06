@@ -5,6 +5,11 @@
   font-weight: 400;
   color: #000;
   text-transform: uppercase;
+  padding-bottom: 10px;
+  &__email {
+    padding: 10px 0 10px 0;
+  }
+
   &__selector {
     height: 58px;
     width: 190px;
@@ -25,27 +30,39 @@
     }
   }
 
+  &__container {
+    display: flex;
+  }
 
-&__container {
-  display: flex;
+  &__icon-mail {
+    border: 0;
+    /*position: relative;
+    display: flex;
+    justify-content:center;
+    align-items: center;*/
+    height: auto;
+    min-width: 58px;
+    padding: 0;
+    margin: 0;
+    background: #e6e6e6;
+    &--email {
+      background-image: url("../../img/icons/icon-mail.svg");
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
 }
 
-&__icon-mail {
-  border: 0;
-  /*position: relative;
-  display: flex;
-  justify-content:center;
-  align-items: center;*/
-  height: auto;
-  min-width: 58px;
-  padding: 0;
-  margin: 0;
-  background: #e6e6e6;
-  &--email {
-    background-image: url("../../img/icons/icon-mail.svg");
-    background-repeat: no-repeat;
-    background-position: center;
+@include responsive($md) {
+  .mail {
+    display: flex;
+    justify-content: space-between;
   }
 }
-
+@include responsive($sm) {
+  .mail {
+    display: flex;
+    flex-direction: column;
+  }
 }

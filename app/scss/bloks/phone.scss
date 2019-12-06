@@ -1,7 +1,6 @@
 .phone {
   display:flex;
-  justify-content: center;
-  align-items: center;
+ flex-direction: column;
   flex: 1;
   font-size: 14px;
   font-weight: 400;
@@ -15,6 +14,9 @@
     color: #ff5c5c;
     text-transform: none;
     padding: 5px 0 0 20px;
+  }
+  &__telephone {
+    padding: 10px 0 10px 0;
   }
   &__selector {
     height: 58px;

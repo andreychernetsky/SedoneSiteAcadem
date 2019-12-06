@@ -18,7 +18,7 @@ document.getElementById('btn').addEventListener('click', burger);
 
 
 (()=> {
-  const menuOpen = document.querySelector(".main-header__menu-button");
+  const menuOpen = document.querySelector(".main-header__burger-button");
   const menuMobile = document.querySelector(".main-menu");
   const menuClose = menuMobile.querySelector(".main-menu__cross-button");
 
